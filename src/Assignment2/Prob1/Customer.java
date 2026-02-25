@@ -53,7 +53,6 @@ public class Customer {
         this.socSecurityNum = socSecurityNum;
     }
 
-    @Override
     public String toString() {
         return "[" + firstName + ", " + lastName + ", " + "ssn: " + socSecurityNum + "]";
     }
