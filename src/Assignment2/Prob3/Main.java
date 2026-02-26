@@ -35,10 +35,8 @@ public class Main {
                 case "h","H":
 
                     System.out.print("Enter hotel name: ");
-                    scanner.nextLine();
-
+                    scanner.nextLine(); // because of hotel named "holiday inn"
                     String hotel = scanner.nextLine();
-
                     System.out.print("Enter number of nights: ");
                     int nights = scanner.nextInt();
 
