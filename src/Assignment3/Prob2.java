@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Prob2 {
     static void reverse(int[] array, int index) {
-        if (index > array.length / 2) {
+        if (array == null || index > array.length / 2) {
             return;
         }
         int end = (array.length - 1) - index;

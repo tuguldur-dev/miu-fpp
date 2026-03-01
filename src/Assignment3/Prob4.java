@@ -2,11 +2,11 @@ package Assignment3;
 
 public class Prob4 {
     int findMax(int[] numbers, int index) {
-        if (numbers.length == 0) {
+        if (numbers == null || numbers.length == 0) {
             return -1;
         }
-        if (numbers.length == index) {
-            return numbers[0];
+        if (numbers.length - 1 == index) {
+            return numbers[index];
         }
         int current = numbers[index];
         int next = findMax(numbers, index + 1);
