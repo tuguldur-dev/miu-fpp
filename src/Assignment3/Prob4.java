@@ -15,7 +15,7 @@ public class Prob4 {
 
 
     void main() {
-        int[] numbers = {5, -3, 6, 1, 9, 4};
+        int[] numbers = {-5, -3, -6, -2, -9, -10};
         IO.println(findMax(numbers, 0));
     }
 }
