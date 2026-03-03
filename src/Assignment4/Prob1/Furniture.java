@@ -6,13 +6,13 @@ public class Furniture extends Product {
     private double shippingCost;
 
     public Furniture(String productName, double price, Material material, double shippingCost) {
-        this.material = material;
-        this.shippingCost = shippingCost;
 
         if(productName == null){
             throw new IllegalArgumentException("Product name can't be empty");
         }
 
+        this.shippingCost = shippingCost;
+        this.material = material;
         super(productName, price);
     }
 
@@ -30,7 +30,7 @@ public class Furniture extends Product {
                         Price: %.2f
                         Total: %.2f
                         """,
-                super.getProductName(),
+                this.getProductName(),
                 this.material,
                 this.shippingCost,
                 super.getPrice(),

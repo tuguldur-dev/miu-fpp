@@ -7,11 +7,11 @@ public class Electronics extends Product {
     private double warrantyCost;
 
     public Electronics(String productName, double price, int warrantyMonth, double warrantyCost) {
-        this.warrantyMonth = warrantyMonth;
-        this.warrantyCost = warrantyCost;
         if(productName == null){
             throw new IllegalArgumentException("Product name can't be empty");
         }
+        this.warrantyMonth = warrantyMonth;
+        this.warrantyCost = warrantyCost;
         super(productName, price);
     }
 
@@ -29,7 +29,7 @@ public class Electronics extends Product {
                         Price: %.2f
                         Total: %.2f
                         """,
-                super.getProductName(),
+                this.getProductName(),
                 this.warrantyMonth,
                 this.warrantyCost,
                 super.getPrice(),

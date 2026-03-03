@@ -8,12 +8,10 @@ public class TemparatureSensor implements Sensor {
     private Location location;
     private LocalTime lastupdated;
     private int temperature;
-    private String name;
     private double reading;
 
 
-    TemparatureSensor(String name, Location location, double reading, int temperature) {
-        this.name = name;
+    TemparatureSensor(Location location, double reading, int temperature) {
         this.location = location;
         this.reading = reading;
         this.temperature = temperature;
@@ -22,7 +20,8 @@ public class TemparatureSensor implements Sensor {
 
     @Override
     public String getSensorType() {
-        return this.name;
+        String className = getClass().getSimpleName();
+        return className.substring(0, className.length() - 6);
     }
 
     @Override
@@ -45,7 +44,8 @@ public class TemparatureSensor implements Sensor {
     public String performAction() {
         if (temperature > 30) {
             return "an alert to turn on the AC";
-        } else if (temperature < 18) {
+        }
+        if (temperature < 18) {
             return "an alert to turn on the Heater";
         }
         return "Temperature is in normal range";
@@ -53,6 +53,7 @@ public class TemparatureSensor implements Sensor {
 
     @Override
     public String toString() {
+        getLastUpdated();
         return String.format("""
                         Sensor Type: %s
                         Reading: %.1f

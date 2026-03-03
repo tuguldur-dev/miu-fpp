@@ -5,13 +5,11 @@ import java.time.format.DateTimeFormatter;
 
 public class LightSensor implements Sensor {
     private Location location;
-    private String name;
     private double reading;
     private LocalTime lastupdated;
     private int lightlevel;
 
-    LightSensor(String name, Location location, double reading, int lightlevel) {
-        this.name = name;
+    LightSensor(Location location, double reading, int lightlevel) {
         this.location = location;
         this.reading = reading;
         this.lightlevel = lightlevel;
@@ -20,7 +18,8 @@ public class LightSensor implements Sensor {
 
     @Override
     public String getSensorType() {
-        return this.name;
+        String className = getClass().getSimpleName();
+        return className.substring(0, className.length() - 6);
     }
 
     @Override
@@ -49,6 +48,7 @@ public class LightSensor implements Sensor {
 
     @Override
     public String toString() {
+        getLastUpdated();
         return String.format("""
                         Sensor Type: %s
                         Reading: %.1f

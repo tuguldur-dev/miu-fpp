@@ -25,11 +25,11 @@ public class Clothing extends Product {
         return String.format("""
                         Product Name: %s
                         Product Brand: %s
-                        Discount: %f
+                        Discount: %.1f%%
                         Price: %.2f
                         Total: %.2f
                         """,
-                super.getProductName(),
+                this.getProductName(),
                 this.brand,
                 this.discount,
                 super.getPrice(),

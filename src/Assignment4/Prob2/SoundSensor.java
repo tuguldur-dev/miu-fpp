@@ -7,19 +7,19 @@ public class SoundSensor implements Sensor {
     private Location location;
     private LocalTime lastupdated;
     private int soundlevel;
-    private String name;
     private double reading;
 
-    SoundSensor(String name, Location location, double reading, int soundlevel) {
-        this.name = name;
+    SoundSensor(Location location, double reading, int soundlevel) {
         this.location = location;
         this.reading = reading;
         this.soundlevel = soundlevel;
         getLastUpdated();
     }
+
     @Override
     public String getSensorType() {
-        return this.name;
+        String className = getClass().getSimpleName();
+        return className.substring(0, className.length() - 6);
     }
 
     @Override
@@ -41,13 +41,15 @@ public class SoundSensor implements Sensor {
 
     @Override
     public String performAction() {
-        if(soundlevel > 70) {
+        if (soundlevel > 70) {
             return "an alert to turn on noise cancellation";
         }
         return "Sound is within normal range";
     }
+
     @Override
     public String toString() {
+        getLastUpdated();
         return String.format("""
                         Sensor Type: %s
                         Reading: %.1f
