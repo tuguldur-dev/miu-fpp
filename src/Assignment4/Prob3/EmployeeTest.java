@@ -12,17 +12,20 @@ public class EmployeeTest {
                 new BasePlusCommissionEmployee("BasePlus2", "Employee5", "#005", 20, 14, 5000)
         };
 
-        for (Employee employee: employees) {
+        for (Employee employee : employees) {
             System.out.println(employee);
         }
         employees = findSalaryList(employees, 4200);
         System.out.println("####Filtered employees###\n");
-        for (Employee employee: employees) {
+        for (Employee employee : employees) {
             System.out.println(employee);
         }
     }
 
     public static Employee[] findSalaryList(Employee[] col, double salary) {
+        if (col == null || col.length == 0) {
+            return new Employee[0];
+        }
         Employee[] employees = new Employee[col.length];
         int counter = 0;
         for (Employee employee : col) {
