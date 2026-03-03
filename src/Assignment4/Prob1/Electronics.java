@@ -7,9 +7,12 @@ public class Electronics extends Product {
     private double warrantyCost;
 
     public Electronics(String productName, double price, int warrantyMonth, double warrantyCost) {
-        super(productName, price);
         this.warrantyMonth = warrantyMonth;
         this.warrantyCost = warrantyCost;
+        if(productName == null){
+            throw new IllegalArgumentException("Product name can't be empty");
+        }
+        super(productName, price);
     }
 
     @Override

@@ -4,6 +4,9 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     private double baseSalary;
 
     public BasePlusCommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate, double baseSalary) {
+        if(firstName == null || lastName == null || socialSecurityNumber == null){
+            throw new IllegalArgumentException("Employee's basic can't be empty");
+        }
         super(firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
         this.baseSalary = baseSalary;
     }

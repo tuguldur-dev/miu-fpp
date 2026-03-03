@@ -5,6 +5,9 @@ public class CommissionEmployee extends Employee {
     private double commissionRate;
 
     public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate) {
+        if (firstName == null || lastName == null || socialSecurityNumber == null) {
+            throw new IllegalArgumentException("Employee's basic can't be empty");
+        }
         super(firstName, lastName, socialSecurityNumber);
         this.grossSales = grossSales;
         this.commissionRate = commissionRate;
@@ -30,6 +33,7 @@ public class CommissionEmployee extends Employee {
     double getPayment() {
         return grossSales * commissionRate;
     }
+
     @Override
     public String toString() {
         return String.format("""

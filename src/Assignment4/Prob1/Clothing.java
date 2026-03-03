@@ -7,9 +7,12 @@ public class Clothing extends Product {
     private double discount;
 
     public Clothing(String productName, double price, String brand, double discount) {
-        super(productName, price);
+        if(productName == null){
+            throw new IllegalArgumentException("Product name can't be empty");
+        }
         this.brand = brand;
         this.discount = discount;
+        super(productName, price);
     }
 
     @Override

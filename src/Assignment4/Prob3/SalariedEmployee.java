@@ -4,6 +4,9 @@ public class SalariedEmployee extends Employee {
     private double weeklySalary;
 
     public SalariedEmployee(String firstName, String lastName, String socialSecurityNumber, double weeklySalary) {
+        if(firstName == null || lastName == null || socialSecurityNumber == null){
+            throw new IllegalArgumentException("Employee's basic can't be empty");
+        }
         super(firstName, lastName, socialSecurityNumber);
         this.weeklySalary = weeklySalary;
     }

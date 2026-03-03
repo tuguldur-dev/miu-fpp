@@ -6,9 +6,14 @@ public class Furniture extends Product {
     private double shippingCost;
 
     public Furniture(String productName, double price, Material material, double shippingCost) {
-        super(productName, price);
         this.material = material;
         this.shippingCost = shippingCost;
+
+        if(productName == null){
+            throw new IllegalArgumentException("Product name can't be empty");
+        }
+
+        super(productName, price);
     }
 
     @Override

@@ -5,6 +5,9 @@ public class HourlyEmployee extends Employee {
     private double hours;
 
     public HourlyEmployee(String firstName, String lastName, String socialSecurityNumber, double wage, double hours) {
+        if(firstName == null || lastName == null || socialSecurityNumber == null){
+            throw new IllegalArgumentException("Employee's basic can't be empty");
+        }
         super(firstName, lastName, socialSecurityNumber);
         this.wage = wage;
         this.hours = hours;
