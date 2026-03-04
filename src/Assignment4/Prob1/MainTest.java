@@ -24,12 +24,7 @@ public class MainTest {
             return totalPricing;
         }
         for (Product product : col) {
-            totalPricing += switch (product) {
-                case Clothing c -> c.getPrice();
-                case Electronics e -> e.getPrice();
-                case Furniture f -> f.getPrice();
-                default -> product.getPrice();
-            };
+            totalPricing += product.getPrice();
         }
         return totalPricing;
     }
