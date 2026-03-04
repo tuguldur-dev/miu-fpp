@@ -23,18 +23,18 @@ public class EmployeeTest {
     }
 
     public static Employee[] findSalaryList(Employee[] col, double salary) {
-        if (col == null || col.length == 0) {
+        if (col == null) {
             return new Employee[0];
         }
+
         Employee[] employees = new Employee[col.length];
         int counter = 0;
+
         for (Employee employee : col) {
-            if (employee.getPayment() < salary) {
-                employees[counter] = employee;
-                counter++;
+            if (employee != null && employee.getPayment() < salary) {
+                employees[counter++] = employee;
             }
         }
-        employees = Arrays.copyOf(col, counter);
-        return employees;
+        return Arrays.copyOf(employees, counter);
     }
 }

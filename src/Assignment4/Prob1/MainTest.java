@@ -19,10 +19,10 @@ public class MainTest {
     }
 
     public static double sumProducts(Product[] col) {
-        if (col == null) {
-            throw new NullPointerException("Product can't be null");
-        }
         double totalPricing = 0;
+        if (col == null) {
+            return totalPricing;
+        }
         for (Product product : col) {
             totalPricing += switch (product) {
                 case Clothing c -> c.getPrice();
